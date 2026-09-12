@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deep: #060b18;
+  --color-navy: #0b1330;
+  --color-line: #1c2748;
+  --color-electric: #3e7bfa;
+  --color-cyan: #22d3ee;
+  --color-violet: #8b6bf0;
+  --color-light: #f3f6fc;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
