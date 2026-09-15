@@ -1,11 +1,14 @@
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
+import Hero from "./components/sections/Hero";
 
 function App() {
   return (
     <div className="font-body bg-deep min-h-screen">
       <Navbar />
-      <main className="pt-16 min-h-[60vh]" />
+      <main>
+        <Hero />
+      </main>
       <Footer />
     </div>
   );

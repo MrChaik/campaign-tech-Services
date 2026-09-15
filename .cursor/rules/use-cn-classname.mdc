@@ -1,0 +1,26 @@
+---
+description: Use cn() whenever composing or merging className values
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Compose class names with `cn`
+
+Import `cn` from `src/lib/utils`. It wraps `clsx` and `tailwind-merge`.
+
+Use `cn` whenever a `className` is combined with another `className` (props, variants, conditionals, or extra Tailwind strings). Do not concatenate with template strings or `+`.
+
+```tsx
+// ❌ BAD
+<div className={`${base} ${className}`} />
+<div className={"flex gap-2 " + className} />
+<button className={variant === "primary" ? "bg-electric " + className : className} />
+
+// ✅ GOOD
+import { cn } from "../lib/utils";
+
+<div className={cn("flex gap-2", className)} />
+<button className={cn("rounded-md", variant === "primary" && "bg-electric", className)} />
+```
+
+A standalone literal `className="flex gap-2"` needs no `cn`.
