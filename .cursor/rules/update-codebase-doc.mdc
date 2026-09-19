@@ -1,0 +1,17 @@
+---
+description: Update docs/CODEBASE.md whenever we commit or push.
+alwaysApply: true
+---
+
+# Keep the codebase doc current
+
+`docs/CODEBASE.md` is the living map of this repo.
+
+When the user asks to **commit** or **push**:
+
+1. Update `docs/CODEBASE.md` in the **same change set** before git add/commit/push.
+2. If files or folders were added, renamed, or removed, edit the **Folder structure** and **Page composition** sections so they match the tree.
+3. Prepend a **Changelog** entry (newest first) with today's date and 1–4 bullets of *why* it changed, not a file dump.
+4. Stage `docs/CODEBASE.md` with the rest of the commit so it ships on that push.
+
+Do not skip the doc update because the change “seems small.” Skip only if the commit touches nothing under `src/`, config, or docs themselves.
