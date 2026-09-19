@@ -36,7 +36,7 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3 shrink-0">
-          <CTAButton className="px-4 py-2 text-xs md:px-5 md:py-2.5 md:text-sm">
+          <CTAButton href="#contact" className="px-4 py-2 text-xs md:px-5 md:py-2.5 md:text-sm">
             Talk to Our Team
           </CTAButton>
           <button

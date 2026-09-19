@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 import Reveal from "../ui/Reveal";
+import SectionHeader from "../ui/SectionHeader";
 
 const SERVICES: {
   title: string;
@@ -167,22 +168,15 @@ export default function OurServices() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24 lg:py-28">
         <div className="max-w-3xl">
           <Reveal>
-            <p className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-electric">
-              Our Services
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h2
-              id="our-services-heading"
-              className="font-display mt-4 text-4xl font-semibold tracking-tight text-navy leading-[1.12] md:text-5xl"
-            >
-              One Place. Every Campaign Need.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.18}>
-            <p className="font-body mt-5 text-lg leading-relaxed text-navy/60">
-              Powerful tools. Seamless communication. Greater impact.
-            </p>
+            <SectionHeader
+              tone="light"
+              align="left"
+              titleId="our-services-heading"
+              eyebrow="Our Services"
+              title="One Place. Every Campaign Need."
+              accentWords={3}
+              sub="Powerful tools. Seamless communication. Greater impact."
+            />
           </Reveal>
         </div>
 

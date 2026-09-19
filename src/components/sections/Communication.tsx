@@ -21,6 +21,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils";
 import CTAButton from "../ui/CTAButton";
 import Reveal from "../ui/Reveal";
+import SectionHeader from "../ui/SectionHeader";
 
 const CHANNELS: {
   id: string;
@@ -581,22 +582,15 @@ export default function Communication() {
         <div className="flex flex-col gap-14 xl:flex-row xl:items-center xl:gap-16">
           <div className="xl:w-[32%] xl:shrink-0">
             <Reveal>
-              <p className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-electric">
-                Communication
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h2
-                id="communication-heading"
-                className="font-display mt-4 text-4xl font-semibold tracking-tight text-navy leading-[1.12] text-balance md:text-5xl"
-              >
-                Reach People Across Every Channel
-              </h2>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <p className="font-body mt-5 max-w-md text-lg leading-relaxed text-navy/60">
-                Meet your audience where they are — across multiple channels, in real time.
-              </p>
+              <SectionHeader
+                tone="light"
+                align="left"
+                titleId="communication-heading"
+                eyebrow="Communication"
+                title="Reach People Across Every Channel"
+                accentWords={2}
+                sub="Meet your audience where they are — across multiple channels, in real time."
+              />
             </Reveal>
             <Reveal delay={0.26}>
               <div className="mt-8">

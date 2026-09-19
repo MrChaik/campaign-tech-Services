@@ -519,10 +519,11 @@ export default function AIProcessing() {
         <Reveal>
           <SectionHeader
             tone="dark"
-            align="center"
+            align="left"
             titleId="ai-processing-heading"
             eyebrow="AI & Automation"
             title="Intelligence That Works Behind the Scenes"
+            accentWords={3}
             sub="AI-powered systems that automate repetitive work, process information and help teams make faster decisions."
           />
         </Reveal>

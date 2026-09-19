@@ -80,6 +80,7 @@ export default function BuiltForScale() {
               <SectionHeader
                 eyebrow="Built for Scale"
                 title="From Thousands to Millions of Interactions"
+                accentWords={3}
                 sub="Our cloud-native infrastructure is built for performance, reliability and scale — so your message always reaches your audience."
                 titleId="scale-heading"
                 align="left"

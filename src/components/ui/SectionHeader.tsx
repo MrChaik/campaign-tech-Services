@@ -1,5 +1,35 @@
 import { cn } from "../../lib/utils";
 
+const ACCENT_CLASS =
+  "bg-gradient-to-r from-electric to-cyan bg-clip-text text-transparent";
+
+function accentWordCount(wordCount: number, override?: number) {
+  if (override != null) return Math.min(Math.max(1, override), wordCount);
+  if (wordCount <= 3) return 1;
+  if (wordCount === 4) return 2;
+  return 3;
+}
+
+export function TitleWithAccent({
+  text,
+  accentWords,
+}: {
+  text: string;
+  accentWords?: number;
+}) {
+  const words = text.trim().split(/\s+/);
+  const n = accentWordCount(words.length, accentWords);
+  const head = words.slice(0, -n).join(" ");
+  const tail = words.slice(-n).join(" ");
+
+  return (
+    <>
+      {head ? `${head} ` : null}
+      <span className={ACCENT_CLASS}>{tail}</span>
+    </>
+  );
+}
+
 interface SectionHeaderProps {
   eyebrow: string;
   title: string;
@@ -7,6 +37,7 @@ interface SectionHeaderProps {
   titleId?: string;
   align?: "left" | "center";
   tone?: "dark" | "light";
+  accentWords?: number;
   className?: string;
 }
 
@@ -17,6 +48,7 @@ export default function SectionHeader({
   titleId,
   align = "center",
   tone = "dark",
+  accentWords,
   className,
 }: SectionHeaderProps) {
   const dark = tone === "dark";
@@ -34,11 +66,11 @@ export default function SectionHeader({
       <h2
         id={titleId}
         className={cn(
-          "font-display mt-4 text-4xl font-semibold tracking-tight leading-[1.12] md:text-5xl",
+          "font-display mt-4 text-4xl font-semibold tracking-tight leading-[1.12] text-balance md:text-5xl",
           dark ? "text-white" : "text-navy",
         )}
       >
-        {title}
+        <TitleWithAccent text={title} accentWords={accentWords} />
       </h2>
       {sub ? (
         <p

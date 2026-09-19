@@ -3,6 +3,7 @@ import heroBackground from "../../assets/Hero.webp";
 import AnimatedCounter from "../ui/AnimatedCounter";
 import CTAButton from "../ui/CTAButton";
 import Reveal from "../ui/Reveal";
+import { TitleWithAccent } from "../ui/SectionHeader";
 
 export default function Hero() {
   return (
@@ -27,8 +28,11 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <h1 className="font-display mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-[1.1]">
-              Technology that powers modern political campaigns
+            <h1 className="font-display mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-[1.1] text-balance">
+              <TitleWithAccent
+                text="Technology that powers modern political campaigns"
+                accentWords={3}
+              />
             </h1>
           </Reveal>
 
@@ -41,7 +45,7 @@ export default function Hero() {
 
           <Reveal delay={0.36}>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CTAButton>
+              <CTAButton href="#contact">
                 Talk to Our Team
                 <ArrowRight size={16} />
               </CTAButton>

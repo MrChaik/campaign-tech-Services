@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 import CTAButton from "../ui/CTAButton";
+import SectionHeader from "../ui/SectionHeader";
 
 const FEATURES: {
   title: string;
@@ -116,23 +117,15 @@ export default function WhatWeDo() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24 lg:py-28">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
           <div className="lg:w-[38%] lg:shrink-0">
-            <p className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-electric">
-              What We Do
-            </p>
-            <h2
-              id="what-we-do-heading"
-              className="font-display mt-4 text-4xl font-semibold tracking-tight text-white leading-[1.12] md:text-5xl"
-            >
-              More than just services — we build the{" "}
-              <span className="bg-gradient-to-r from-electric to-cyan bg-clip-text text-transparent">
-                technology
-              </span>{" "}
-              behind your campaign.
-            </h2>
-            <p className="font-body mt-6 max-w-lg text-lg leading-relaxed text-white/70">
-              From communication tools to intelligent automation, we provide the digital
-              infrastructure political organizations need to run successful campaigns.
-            </p>
+            <SectionHeader
+              tone="dark"
+              align="left"
+              titleId="what-we-do-heading"
+              eyebrow="What We Do"
+              title="More than just services — we build the technology behind your campaign."
+              accentWords={4}
+              sub="From communication tools to intelligent automation, we provide the digital infrastructure political organizations need to run successful campaigns."
+            />
             <div className="mt-8">
               <CTAButton href="#services">
                 Explore Our Services

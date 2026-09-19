@@ -24,6 +24,7 @@ import { cn } from "../../lib/utils";
 import innovationBackground from "../../assets/innovation_section_bg.webp";
 import CTAButton from "../ui/CTAButton";
 import Reveal from "../ui/Reveal";
+import SectionHeader from "../ui/SectionHeader";
 
 const TEAM: { label: string; icon: LucideIcon }[] = [
   { label: "Team", icon: User },
@@ -261,25 +262,15 @@ export default function InnovationSolutions() {
         <div className="flex flex-col gap-16 xl:flex-row xl:items-center xl:gap-32">
           <div className="xl:w-[32%] xl:shrink-0">
             <Reveal>
-              <p className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-electric">
-                Innovation & Custom Solutions
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h2
-                id="innovation-heading"
-                className="font-display mt-4 text-4xl font-semibold tracking-tight text-white leading-[1.12] text-balance md:text-5xl"
-              >
-                Turning Ideas into{" "}
-                <span className="bg-gradient-to-r from-electric to-violet bg-clip-text text-transparent">
-                  Technology
-                </span>
-              </h2>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <p className="font-body mt-5 max-w-md text-lg leading-relaxed text-white/65">
-                Custom tools, AI solutions, data-driven services and technology built around your needs.
-              </p>
+              <SectionHeader
+                tone="dark"
+                align="left"
+                titleId="innovation-heading"
+                eyebrow="Innovation & Custom Solutions"
+                title="Turning Ideas into Technology"
+                accentWords={1}
+                sub="Custom tools, AI solutions, data-driven services and technology built around your needs."
+              />
             </Reveal>
             <Reveal delay={0.26}>
               <div className="mt-8">

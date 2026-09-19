@@ -9,7 +9,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "../../lib/utils";
-import CTAButton from "../ui/CTAButton";
+import ContactForm from "./ContactForm";
 import Reveal from "../ui/Reveal";
 import SectionHeader from "../ui/SectionHeader";
 
@@ -101,6 +101,7 @@ export default function ClosingSection() {
           <SectionHeader
             eyebrow="Why Choose Us"
             title="Innovative. Reliable. Scalable."
+            accentWords={1}
             sub="The right mix of technology, experience and support to help you build stronger connections and bigger impact."
             titleId="why-choose-us-heading"
             align="left"
@@ -118,30 +119,20 @@ export default function ClosingSection() {
 
         <div className="mt-16 h-px bg-white/10 md:mt-20" aria-hidden="true" />
 
-        <div className="mt-16 grid grid-cols-1 gap-8 md:mt-20 lg:grid-cols-2 lg:items-center lg:gap-12">
-          <Reveal className="min-w-0">
+        <div id="contact" className="mt-16 scroll-mt-[5.2rem] md:mt-20">
+          <Reveal>
             <SectionHeader
-              eyebrow="Let's Build Together"
-              title="Give Your Campaign the Technology It Needs."
-              sub="Power your next campaign with secure, scalable and intelligent technology built for real-world political operations."
-              titleId="closing-cta-heading"
+              eyebrow="Talk to Our Team"
+              title="Tell us about your campaign."
+              accentWords={2}
+              sub="Share a few details and we will follow up with the right people for your race, region and channels."
+              titleId="contact-heading"
               align="left"
               tone="dark"
             />
           </Reveal>
-          <Reveal delay={0.12} className="flex justify-start lg:justify-end">
-            <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
-              <CTAButton className="px-9 py-[18px] text-lg">
-                Talk to Our Team
-              </CTAButton>
-              <CTAButton
-                href="#services"
-                variant="secondary"
-                className="border-white/30 px-9 py-[18px] text-lg text-white hover:border-white/60 hover:bg-white/10"
-              >
-                Explore Our Services
-              </CTAButton>
-            </div>
+          <Reveal delay={0.12} className="mt-8 md:mt-10">
+            <ContactForm />
           </Reveal>
         </div>
       </div>
