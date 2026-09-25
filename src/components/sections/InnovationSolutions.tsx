@@ -22,6 +22,7 @@ import {
 import { useEffect, useRef } from "react";
 import { cn } from "../../lib/utils";
 import innovationBackground from "../../assets/innovation_section_bg.webp";
+import innovationBackgroundMobile from "../../assets/innovation_section-mobile.png";
 import CTAButton from "../ui/CTAButton";
 import Reveal from "../ui/Reveal";
 import SectionHeader from "../ui/SectionHeader";
@@ -131,7 +132,7 @@ function TeamPanel({
 
   return (
     <motion.div
-      className="w-full max-w-[34rem] rounded-2xl border bg-navy/55 px-6 py-7 backdrop-blur-sm sm:px-8 sm:py-8 lg:min-w-[26rem] lg:flex-1"
+      className="w-full max-w-[34rem] min-w-0 rounded-2xl border bg-navy/55 px-6 py-7 backdrop-blur-sm sm:px-8 sm:py-8 lg:flex-1 lg:basis-64"
       style={{
         boxShadow: reduce ? "0 0 36px -12px rgba(62,123,250,0.38)" : glow,
         borderColor: reduce ? "rgba(62,123,250,0.32)" : border,
@@ -222,7 +223,7 @@ function SolutionFlow({ reduce }: { reduce: boolean }) {
   }, [reduce, inView, cycle]);
 
   return (
-    <div ref={wrapRef} className="flex w-full min-w-0 flex-col items-center gap-1 lg:flex-row lg:justify-center lg:gap-1">
+    <div ref={wrapRef} className="flex w-full min-w-0 flex-col items-center gap-1 lg:flex-row lg:flex-wrap lg:justify-center lg:gap-1 xl:flex-nowrap">
       <IdeaPanel lit={ideaLit} delay={0.15} visible={inView} reduce={reduce} />
       <div className="lg:hidden">
         <FlowArrow axis="y" progress={arrow1} delay={0.32} visible={inView} reduce={reduce} />
@@ -252,15 +253,21 @@ export default function InnovationSolutions() {
       aria-labelledby="innovation-heading"
     >
       <img
+        src={innovationBackgroundMobile}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 size-full object-cover object-center sm:hidden"
+      />
+      <img
         src={innovationBackground}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 size-full object-cover object-center"
+        className="absolute inset-0 hidden size-full object-cover object-center sm:block"
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24 lg:py-28">
-        <div className="flex flex-col gap-16 xl:flex-row xl:items-center xl:gap-32">
-          <div className="xl:w-[32%] xl:shrink-0">
+        <div className="flex flex-col gap-16 xl:flex-row xl:items-center xl:gap-10 2xl:gap-20">
+          <div className="xl:w-[28%] xl:shrink-0">
             <Reveal>
               <SectionHeader
                 tone="dark"

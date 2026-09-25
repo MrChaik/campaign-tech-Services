@@ -79,7 +79,7 @@ export default function TrustedPartner() {
       <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
         <h2
           id="trusted-partner-heading"
-          className="font-display rounded-full bg-gradient-to-r from-electric to-violet px-2 py-0.5 sm:px-2.5 sm:py-1 text-[7px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_0_20px_12px_#f3f6fc]"
+          className="font-display rounded-full bg-gradient-to-r from-electric to-violet px-2 py-0.5 sm:px-2.5 sm:py-1 text-[7px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_0_20px_12px_#edf1fa]"
         >
           Our trusted partners, till now
         </h2>

@@ -7,8 +7,8 @@ import {
   type MotionValue,
 } from "framer-motion";
 import {
-  ArrowRight,
   Bell,
+  ChevronDown,
   ChevronRight,
   Mail,
   MessageSquare,
@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "../../lib/utils";
-import CTAButton from "../ui/CTAButton";
 import Reveal from "../ui/Reveal";
 import SectionHeader from "../ui/SectionHeader";
 
@@ -91,12 +90,33 @@ const CHEVRON_COUNT = 3;
 const CYCLE =
   SEQ.travel + SEQ.pulse + SEQ.chevron * CHEVRON_COUNT + SEQ.fill + SEQ.hold;
 
-const NODE_ANGLES = [60, 120, 180, 240, 300] as const;
+const DESKTOP_NODE_ANGLES = [60, 120, 180, 240, 300] as const;
+const MOBILE_NODE_ANGLES = [150, 210, 90, 330, 30] as const;
+type NodeAngles = typeof DESKTOP_NODE_ANGLES | typeof MOBILE_NODE_ANGLES;
 
 type Pt = { x: number; y: number };
 
-function nodeAngle(index: number): number {
-  return (NODE_ANGLES[index] * Math.PI) / 180;
+function nodeAngle(degrees: number): number {
+  return (degrees * Math.PI) / 180;
+}
+
+function useIsCompact() {
+  const query = "(max-width: 1023px)";
+  const [compact, setCompact] = useState(() => window.matchMedia(query).matches);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setCompact(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    window.addEventListener("resize", onChange);
+    return () => {
+      media.removeEventListener("change", onChange);
+      window.removeEventListener("resize", onChange);
+    };
+  }, []);
+
+  return compact;
 }
 
 function cssPx(value: string): number {
@@ -185,6 +205,7 @@ function ChannelNode({
   reduce,
   onHover,
   style,
+  outwardLabel,
 }: (typeof CHANNELS)[number] & {
   iconRef: (el: HTMLDivElement | null) => void;
   hot: boolean;
@@ -192,6 +213,7 @@ function ChannelNode({
   reduce: boolean;
   onHover: (active: boolean) => void;
   style?: React.CSSProperties;
+  outwardLabel?: boolean;
 }) {
   const active = hot || hovered;
 
@@ -234,7 +256,20 @@ function ChannelNode({
             aria-hidden="true"
           />
         </motion.div>
-        <div className="absolute bottom-full left-1/2 mb-2.5 w-max -translate-x-1/2 text-center sm:mb-3.5">
+        <div
+          className={cn(
+            "absolute w-max text-center",
+            outwardLabel ? "left-1/2 top-1/2" : "bottom-full left-1/2 mb-2.5 -translate-x-1/2 sm:mb-3.5",
+          )}
+          style={
+            outwardLabel
+              ? {
+                  transform:
+                    "translate(calc(-50% + (var(--ox) * 3.15rem)), calc(-50% - (var(--oy) * 3.15rem)))",
+                }
+              : undefined
+          }
+        >
           <p className="font-display text-[11px] font-semibold leading-snug text-navy sm:text-sm">
             {name}
           </p>
@@ -299,10 +334,29 @@ function UserNode({
   );
 }
 
-function ChevronRelay({ lit, reduce }: { lit: number; reduce: boolean }) {
+function ChevronRelay({
+  lit,
+  reduce,
+  direction,
+}: {
+  lit: number;
+  reduce: boolean;
+  direction: "right" | "down";
+}) {
+  const Icon = direction === "down" ? ChevronDown : ChevronRight;
+  const count = direction === "down" ? 1 : CHEVRON_COUNT;
+
   return (
-    <div className="hidden shrink-0 items-center gap-2 lg:-ml-20 lg:flex lg:gap-2.5" aria-hidden="true">
-      {Array.from({ length: CHEVRON_COUNT }, (_, i) => {
+    <div
+      className={cn(
+        "shrink-0 items-center gap-2",
+        direction === "down"
+          ? "flex flex-col -mt-[calc(1.5rem*0.9)] lg:hidden"
+          : "hidden lg:-ml-20 lg:flex lg:gap-2.5",
+      )}
+      aria-hidden="true"
+    >
+      {Array.from({ length: count }, (_, i) => {
         const on = reduce || i <= lit;
         return (
           <motion.span
@@ -317,7 +371,7 @@ function ChevronRelay({ lit, reduce }: { lit: number; reduce: boolean }) {
             }}
             transition={{ duration: 0.22, ease: "easeOut" }}
           >
-            <ChevronRight size={16} strokeWidth={2.4} />
+            <Icon size={16} strokeWidth={2.4} />
           </motion.span>
         );
       })}
@@ -330,7 +384,7 @@ function AwarenessCard({ fill, reduce }: { fill: number; reduce: boolean }) {
   const pct = Math.round((reduce ? 1 : fill) * 90);
 
   return (
-    <div className="w-[8.25rem] shrink-0 sm:w-[11.5rem] lg:w-[12.75rem]">
+    <div className="w-[16.5rem] shrink-0 sm:w-[23rem] lg:w-[25.5rem]">
       <div className="rounded-2xl border border-navy/10 bg-deep p-3 shadow-[0_12px_32px_-18px_rgba(11,19,48,0.28)] sm:p-5">
         <p className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-electric">
           Awareness
@@ -357,11 +411,15 @@ function ChannelOrbit({
   travelProgress,
   pulsing,
   launching,
+  angles,
+  outwardLabels,
 }: {
   reduce: boolean;
   travelProgress: MotionValue<number>;
   pulsing: boolean;
   launching: boolean;
+  angles: NodeAngles;
+  outwardLabels: boolean;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const userRef = useRef<HTMLDivElement | null>(null);
@@ -371,7 +429,7 @@ function ChannelOrbit({
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [hovered, setHovered] = useState(-1);
 
-  const angleKey = NODE_ANGLES.join(",");
+  const angleKey = angles.join(",");
 
   useLayoutEffect(() => {
     const wrap = wrapRef.current;
@@ -390,7 +448,7 @@ function ChannelOrbit({
       const cy = wr.height / 2;
 
       setPaths(
-        NODE_ANGLES.map((deg, i) => {
+        angles.map((deg, i) => {
           const iconR = icons[i]!.getBoundingClientRect().width / 2;
           return radialSpoke(cx, cy, radius, deg, iconR, userR);
         }),
@@ -455,7 +513,7 @@ function ChannelOrbit({
       ))}
 
       {CHANNELS.map((channel, i) => {
-        const rad = nodeAngle(i);
+        const rad = nodeAngle(angles[i]);
         return (
           <ChannelNode
             key={channel.id}
@@ -467,10 +525,11 @@ function ChannelOrbit({
               iconRefs.current[i] = el;
             }}
             onHover={(active) => setHovered(active ? i : -1)}
+            outwardLabel={outwardLabels}
             style={
               {
-                "--ox": Math.cos(rad),
-                "--oy": Math.sin(rad),
+                "--ox": `${Math.cos(rad)}`,
+                "--oy": `${Math.sin(rad)}`,
                 left: "calc(50% + (var(--ox) * var(--r)))",
                 top: "calc(50% - (var(--oy) * var(--r)))",
                 transform: "translate(-50%, -50%)",
@@ -491,6 +550,8 @@ function ChannelOrbit({
 }
 
 function CommunicationFlow({ reduce }: { reduce: boolean }) {
+  const compact = useIsCompact();
+  const angles = compact ? MOBILE_NODE_ANGLES : DESKTOP_NODE_ANGLES;
   const wrapRef = useRef(null);
   const inView = useInView(wrapRef, { margin: "-80px" });
   const travelProgress = useMotionValue(reduce ? 1 : 0);
@@ -557,8 +618,11 @@ function CommunicationFlow({ reduce }: { reduce: boolean }) {
         travelProgress={travelProgress}
         pulsing={pulsing}
         launching={launching}
+        angles={angles}
+        outwardLabels={compact}
       />
-      <ChevronRelay lit={chevron} reduce={reduce} />
+      <ChevronRelay lit={chevron} reduce={reduce} direction="down" />
+      <ChevronRelay lit={chevron} reduce={reduce} direction="right" />
       <AwarenessCard fill={fill} reduce={reduce} />
     </div>
   );
@@ -592,14 +656,7 @@ export default function Communication() {
                 sub="Meet your audience where they are — across multiple channels, in real time."
               />
             </Reveal>
-            <Reveal delay={0.26}>
-              <div className="mt-8">
-                <CTAButton variant="secondary">
-                  Learn More
-                  <ArrowRight size={16} aria-hidden="true" />
-                </CTAButton>
-              </div>
-            </Reveal>
+          
           </div>
 
           <Reveal delay={0.2} className="min-w-0 flex-1">

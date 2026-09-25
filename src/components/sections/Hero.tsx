@@ -1,25 +1,49 @@
 import { ArrowRight } from "lucide-react";
+import aiCalling from "../../assets/AI calling.png";
+import bulkSms from "../../assets/Bulk SMS.png";
+import campaignData from "../../assets/campaign data & analytics.png";
+import customSolutions from "../../assets/Custom Innovative solutions.png";
 import heroBackground from "../../assets/Hero.webp";
+import heroBackgroundMobile from "../../assets/Hero-mobile.jpg";
+import websitesApps from "../../assets/Websites & Apps.png";
+import whatsappIrm from "../../assets/Whatsapp_IRM.png";
 import AnimatedCounter from "../ui/AnimatedCounter";
 import CTAButton from "../ui/CTAButton";
+import HeroCarousel, { type HeroCarouselImage } from "../ui/HeroCarousel";
 import Reveal from "../ui/Reveal";
 import { TitleWithAccent } from "../ui/SectionHeader";
 
+// Current service illustrations. Replace entries here when final hero photography is ready.
+const HERO_SLIDES: readonly HeroCarouselImage[] = [
+  { src: whatsappIrm, alt: "WhatsApp and IRM messaging", href: "/services/whatsapp-irm" },
+  { src: bulkSms, alt: "Bulk SMS campaigns", href: "/services/bulk-sms" },
+  { src: aiCalling, alt: "AI calling", href: "/services/ai-calling" },
+  { src: websitesApps, alt: "Websites and apps", href: "/services/websites-apps" },
+  { src: campaignData, alt: "Campaign data and analytics", href: "/services/campaign-data-platforms" },
+  { src: customSolutions, alt: "Custom innovative solutions", href: "/services/websites-apps" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pt-[5.2rem] min-h-screen">
+    <section className="relative isolate overflow-hidden pt-[5.2rem]">
+      <img
+        src={heroBackgroundMobile}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 size-full object-cover object-center sm:hidden"
+      />
       <img
         src={heroBackground}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 size-full object-cover object-center"
+        className="absolute inset-0 hidden size-full object-cover object-center sm:block"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/55 to-navy/20"
+        className="absolute inset-0 bg-navy/80 sm:bg-navy/70"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5.2rem)] max-w-7xl items-center px-6 py-20 md:px-10 md:py-28">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-14 md:px-10 md:py-16 lg:min-h-[calc(100vh-5.2rem)] lg:grid-cols-2 lg:gap-16 lg:py-12">
         <div className="max-w-2xl">
           <Reveal>
             <p className="font-body inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium tracking-wide text-cyan">
@@ -76,6 +100,10 @@ export default function Hero() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={0.6} className="mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+          <HeroCarousel images={HERO_SLIDES} />
+        </Reveal>
       </div>
     </section>
   );
