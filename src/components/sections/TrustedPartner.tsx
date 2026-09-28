@@ -1,22 +1,22 @@
 const PARTIES = [
   "Telugu Desam Party",
   "YSR Congress Party",
-  "Jana Sena",
-  "Bharatiya Janata Party",
-  "Indian National Congress",
+  "Jana Sena Party",
+  "Bharat Rashtra Samithi",
+  "All India Majlis-e-Ittehadul Muslimeen",
+  "Telangana Jagruthi",
+  "Communist Party of India",
+  "Communist Party of India (Marxist)",
+  "Bahujan Samaj Party",
   "Aam Aadmi Party",
-  "Dravida Munnetra Kazhagam",
-  "Trinamool Congress",
-  "Shiv Sena",
-  "Biju Janata Dal",
+  "Indian National Congress",
+  "Bharatiya Janata Party",
+  "Pattali Makkal Katchi",
+  "Desiya Murpokku Dravida Kazhagam",
+  "All India Forward Bloc",
   "Samajwadi Party",
-  "Janata Dal (Secular)",
-  "Democratic Party",
-  "Republican Party",
-  "Labour Party",
-  "Conservative Party",
-  "Liberal Party",
-  "Australian Labor Party",
+  "Janata Dal (United)",
+  "Rashtriya Janata Dal",
 ];
 
 const ROW_A = PARTIES.slice(0, Math.ceil(PARTIES.length / 2));
@@ -81,7 +81,7 @@ export default function TrustedPartner() {
           id="trusted-partner-heading"
           className="font-display rounded-full bg-gradient-to-r from-electric to-violet px-2 py-0.5 sm:px-2.5 sm:py-1 text-[7px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_0_20px_12px_#edf1fa]"
         >
-          Our trusted partners, till now
+          Partners we work with
         </h2>
       </div>
 
