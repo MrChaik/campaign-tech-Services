@@ -88,14 +88,15 @@ export default function Hero() {
 
           <Reveal delay={0.48}>
             <div className="mt-8 ml-8 flex flex-wrap gap-6 md:gap-8">
-              <div className="text-center">
-                <AnimatedCounter value={8.4} suffix="M+" />
-                <p className="font-body text-base text-white/70">Total Reach</p>
-              </div>
-              <div className="text-center">
-                <AnimatedCounter value={1.2} suffix="M+" />
-                <p className="font-body text-base text-white/70">Calls Made</p>
-              </div>
+            <div className="text-center">
+              <AnimatedCounter value={1.8} suffix="M+" />
+              <p className="font-body text-base text-white/70">Total Reach</p>
+            </div>
+
+            <div className="text-center">
+              <AnimatedCounter value={240} suffix="K+" />
+              <p className="font-body text-base text-white/70">Calls Made</p>
+            </div>
               <div className="text-center">
                 <AnimatedCounter value={99.9} suffix="%" />
                 <p className="font-body text-base text-white/70">Uptime</p>
