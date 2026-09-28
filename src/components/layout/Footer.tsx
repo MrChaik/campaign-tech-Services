@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import { services } from "../../data/services";
 
 const company = [
@@ -41,7 +40,7 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <div className="mb-4 flex items-center gap-2">
               <span className="inline-flex rounded-md bg-light p-0.5">
-                <img src={logo} alt="" className="h-8 w-8 object-contain" />
+                <img src="/favicon.png" alt="" className="h-8 w-8 object-contain" />
               </span>
               <span className="font-display font-semibold text-white">My Leader</span>
             </div>

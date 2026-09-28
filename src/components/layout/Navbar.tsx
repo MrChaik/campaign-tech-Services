@@ -1,7 +1,6 @@
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import { services } from "../../data/services";
 import { cn } from "../../lib/utils";
 import CTAButton from "../ui/CTAButton";
@@ -117,7 +116,7 @@ export default function Navbar() {
       <div className="relative flex h-[5.2rem] w-full items-center justify-between px-4 md:px-6 lg:px-8">
         <a href="/" className="flex shrink-0 items-center gap-2.5">
           <span className="inline-flex rounded-md bg-light p-0.5">
-            <img src={logo} alt="" className="h-8 w-8 object-contain" />
+            <img src="/favicon.png" alt="" className="h-8 w-8 object-contain" />
           </span>
           <span className="font-display text-lg font-semibold tracking-tight text-white">
             My Leader
