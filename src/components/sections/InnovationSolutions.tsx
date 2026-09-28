@@ -281,7 +281,7 @@ export default function InnovationSolutions() {
             </Reveal>
             <Reveal delay={0.26}>
               <div className="mt-8">
-                <CTAButton>
+                <CTAButton href="#contact">
                   Build Your Solution
                   <ArrowRight size={16} aria-hidden="true" />
                 </CTAButton>
