@@ -10,6 +10,7 @@ import {
   type PoliticalContactFormData,
 } from "../../lib/politicalContactSchema";
 import CTAButton from "../ui/CTAButton";
+import WhatsAppButton from "../ui/WhatsAppButton";
 
 const inputClass = (invalid?: boolean) =>
   cn(
@@ -173,10 +174,15 @@ export default function ContactForm() {
         </Field>
       </div>
 
-      <div className="mt-6">
-        <CTAButton type="submit" className="w-full sm:w-auto">
-          Send message
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <CTAButton type="submit" className="h-11 w-full sm:w-64">
+          Send Mail to our team
         </CTAButton>
+        <WhatsAppButton
+          ping={false}
+          imgClassName="size-5"
+          className="static bottom-auto right-auto z-auto h-11 w-full origin-center scale-100 justify-center px-4 py-0 sm:w-64"
+        />
       </div>
     </form>
   );

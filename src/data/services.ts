@@ -62,6 +62,23 @@ export const services: Service[] = [
     seoDescription: "Interactive voice systems for communication, surveys, updates, and support.",
   },
   {
+    slug: "custom-solutions",
+    title: "Custom Solutions",
+    tagline: "Technology solutions built around your campaign's unique requirements.",
+    overviewHeading: "What are Custom Solutions?",
+    overview: [
+    "Every campaign has unique technology requirements that may not fit into a standard solution. Custom Solutions allows us to design and build technology around specific campaign problems, workflows, and operational needs.",
+    "From custom platforms and integrations to specialized communication tools and automation systems, solutions can be developed based on the exact requirements of each campaign."
+    ],
+    benefits: [
+    "Custom technology can be designed around specific campaign requirements instead of forcing teams to adapt to a fixed platform.",
+    "Solutions can combine different technologies, systems, and communication channels into a workflow designed for a particular operational need.",
+    "Our team can work with campaign requirements to develop, integrate, and refine technology that solves problems specific to the campaign."
+    ],
+    seoTitle: "Custom Solutions | CampaignTech",
+    seoDescription: "Technology solutions built around your campaign's unique requirements."
+    },    
+  {
     slug: "websites-apps",
     title: "Websites & Apps",
     tagline: "Campaign websites, landing pages, and mobile apps built for better digital engagement.",

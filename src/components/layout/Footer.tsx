@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import { services } from "../../data/services";
 
 const company = [
@@ -39,8 +40,10 @@ export default function Footer() {
         <div className="grid gap-10 pb-12 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-3">
             <div className="mb-4 flex items-center gap-2">
-              <div className="h-6 w-6 rounded-md bg-gradient-to-br from-electric to-violet" />
-              <span className="font-display font-semibold text-white">CampaignTech</span>
+              <span className="inline-flex rounded-md bg-light p-0.5">
+                <img src={logo} alt="" className="h-8 w-8 object-contain" />
+              </span>
+              <span className="font-display font-semibold text-white">My Leader</span>
             </div>
             <p className="font-body max-w-xs text-sm text-slate-500">
               Technology infrastructure for political organizations and campaigns.

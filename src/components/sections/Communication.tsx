@@ -384,7 +384,7 @@ function AwarenessCard({ fill, reduce }: { fill: number; reduce: boolean }) {
   const pct = Math.round((reduce ? 1 : fill) * 90);
 
   return (
-    <div className="w-[16.5rem] shrink-0 sm:w-[23rem] lg:w-[25.5rem]">
+    <div className="w-[16.5rem] shrink-0 sm:w-[11.5rem] lg:w-[12.75rem]">
       <div className="rounded-2xl border border-navy/10 bg-deep p-3 shadow-[0_12px_32px_-18px_rgba(11,19,48,0.28)] sm:p-5">
         <p className="font-body text-[11px] font-bold uppercase tracking-[0.16em] text-electric">
           Awareness

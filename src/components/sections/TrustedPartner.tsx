@@ -28,7 +28,7 @@ function TickerLane({ names }: { names: string[] }) {
       {names.map((name) => (
         <span
           key={name}
-          className="font-display text-[10px] sm:text-sm md:text-base font-semibold text-navy/55 whitespace-nowrap"
+          className="font-display text-[12px] sm:text-[16.8px] md:text-[19.2px] font-semibold text-black whitespace-nowrap"
         >
           {name}
           <span className="ml-8 sm:ml-10 text-electric">•</span>
@@ -62,13 +62,13 @@ function Marquee({
 export default function TrustedPartner() {
   return (
     <section
-      className="relative overflow-hidden bg-light border-y border-navy/10 py-3 sm:py-5"
+      className="relative overflow-hidden bg-light border-y border-navy/10 py-4 sm:py-5"
       aria-labelledby="trusted-partner-heading"
     >
       <div className="hidden sm:block">
         <Marquee names={PARTIES} />
       </div>
-      <div className="flex flex-col gap-2 sm:hidden">
+      <div className="flex flex-col gap-6 sm:hidden">
         <Marquee names={ROW_A} />
         <Marquee names={ROW_B} reverse />
       </div>

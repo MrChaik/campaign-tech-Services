@@ -1,16 +1,20 @@
-import { cn } from "../../lib/utils";
 import whatsappIcon from "../../assets/whatsapp.svg";
+import { cn } from "../../lib/utils";
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
   message?: string;
   className?: string;
+  imgClassName?: string;
+  ping?: boolean;
 }
 
 const WhatsAppButton = ({
   phoneNumber = "7842754768",
   message = "Hi, I would like to know more about CampaignTech.",
   className,
+  imgClassName,
+  ping = true,
 }: WhatsAppButtonProps) => {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -33,25 +37,16 @@ const WhatsAppButton = ({
         className,
       )}
     >
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 animate-ping scale-70 [animation-duration:2s] rounded-full bg-electric/50 motion-reduce:hidden"
-      />
-      {/* Temporary icon — replace with the final WhatsApp icon later */}
-      <span
-        className={cn(
-          "flex  shrink-0 items-center justify-center",
-          "rounded-full bg-electric",
-          "transition-transform duration-300",
-          "group-hover:scale-105",
-        )}
-      >
-        <img src={whatsappIcon} alt="WhatsApp" className="h-12 w-12" />
+      {ping ? (
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 animate-ping scale-70 [animation-duration:2s] rounded-full bg-electric/50 motion-reduce:hidden"
+        />
+      ) : null}
+      <span className="flex shrink-0 items-center justify-center rounded-full bg-electric transition-transform duration-300 group-hover:scale-105">
+        <img src={whatsappIcon} alt="" className={cn("h-12 w-12", imgClassName)} />
       </span>
-
-      <span className="pr-1 text-sm font-semibold tracking-wide">
-        Contact Our Team
-      </span>
+      <span className="pr-1 text-sm font-semibold tracking-wide">Contact Our Team</span>
     </a>
   );
 };

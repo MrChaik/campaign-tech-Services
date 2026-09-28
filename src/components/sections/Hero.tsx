@@ -20,7 +20,7 @@ const HERO_SLIDES: readonly HeroCarouselImage[] = [
   { src: aiCalling, alt: "AI calling", href: "/services/ai-calling" },
   { src: websitesApps, alt: "Websites and apps", href: "/services/websites-apps" },
   { src: campaignData, alt: "Campaign data and analytics", href: "/services/campaign-data-platforms" },
-  { src: customSolutions, alt: "Custom innovative solutions", href: "/services/websites-apps" },
+  { src: customSolutions, alt: "Custom innovative solutions", href: "/services/custom-solutions" },
 ];
 
 export default function Hero() {
@@ -68,15 +68,18 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.36}>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <CTAButton href="#contact">
+            <div className="mt-8 flex flex-nowrap items-center gap-1.5 min-[360px]:gap-2 sm:gap-3">
+              <CTAButton
+                href="#contact"
+                className="whitespace-nowrap border border-transparent px-2.5 py-2 text-[11px] min-[360px]:px-3 min-[360px]:py-2.5 min-[360px]:text-xs sm:px-6 sm:py-3 sm:text-sm"
+              >
                 Talk to Our Team
-                <ArrowRight size={16} />
+                <ArrowRight size={16} className="size-3.5 sm:size-4" />
               </CTAButton>
               <CTAButton
                 href="#services"
                 variant="secondary"
-                className="border-white/30 text-white hover:border-white/60 hover:bg-white/10"
+                className="whitespace-nowrap border-white/30 px-2.5 py-2 text-[11px] text-white hover:border-white/60 hover:bg-white/10 min-[360px]:px-3 min-[360px]:py-2.5 min-[360px]:text-xs sm:px-6 sm:py-3 sm:text-sm"
               >
                 Explore Our Services
               </CTAButton>

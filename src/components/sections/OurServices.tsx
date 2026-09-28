@@ -1,10 +1,10 @@
 import { motion, useAnimationControls, useInView, useMotionValue, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import whatsappIcon from "../../assets/whatsapp.svg";
 import { Link } from "react-router-dom";
 import { services } from "../../data/services";
 import {
   ArrowRight,
-  AudioLines,
   BarChart3,
   Bot,
   Brain,
@@ -13,8 +13,8 @@ import {
   ClipboardList,
   Database,
   LayoutDashboard,
+  Lightbulb,
   MessageSquare,
-  MessagesSquare,
   Monitor,
   PhoneCall,
   Sparkles,
@@ -29,12 +29,12 @@ const SERVICES: {
   title: string;
   description: string;
   features: string[];
-  icon: LucideIcon;
+  icon: LucideIcon | string;
   wrap: string;
   iconClass: string;
 }[] = [
   {
-    title: "WhatsApp / IRM",
+    title: "WhatsApp/IRM",
     description: "Secure messaging, rich media and intelligent response management.",
     features: [
       "Campaign messaging",
@@ -42,7 +42,7 @@ const SERVICES: {
       "Automated responses",
       "Audience segmentation",
     ],
-    icon: MessagesSquare,
+    icon: whatsappIcon,
     wrap: "bg-cyan/15",
     iconClass: "text-cyan",
   },
@@ -74,6 +74,19 @@ const SERVICES: {
     wrap: "bg-electric/12",
     iconClass: "text-electric",
   },
+  {
+    title: "Custom Solutions",
+    description: "Technology solutions built around your campaign's unique requirements.",
+    features: [
+      "Custom platforms",
+      "System integrations",
+      "Specialized workflows",
+      "Tailored technology",
+    ],
+    icon: Lightbulb,
+    wrap: "bg-cyan/15",
+    iconClass: "text-cyan",
+  },
   
   {
     title: "Websites & Apps",
@@ -102,7 +115,6 @@ const SERVICES: {
     wrap: "bg-violet/12",
     iconClass: "text-violet",
   },
-  
   {
     title: "Campaign Command Centers",
     description: "Centralized dashboards for monitoring communication and campaign operations.",
@@ -227,20 +239,6 @@ const SERVICES: {
     wrap: "bg-violet/12",
     iconClass: "text-violet",
   },
-  
-  {
-    title: "AI Voice & IVR",
-    description: "Intelligent voice systems that automate conversations, routing and responses.",
-    features: [
-      "AI voice menus",
-      "Smart call routing",
-      "Voice surveys",
-      "Response analysis",
-    ],
-    icon: AudioLines,
-    wrap: "bg-electric/12",
-    iconClass: "text-electric",
-  },
 ];
 
 const MotionLink = motion.create(Link);
@@ -259,23 +257,32 @@ function ServiceCard({
 }: (typeof SERVICES)[number]) {
   const reduce = useReducedMotion();
   const pointerStart = useRef<{ x: number; y: number } | null>(null);
+  const hasDragged = useRef(false);
 
   return (
     <MotionLink
       to={serviceHref(title)}
       aria-label={title}
+      draggable={false}
+      onDragStart={(event) => event.preventDefault()}
       onPointerDown={(event) => {
         pointerStart.current = { x: event.clientX, y: event.clientY };
+        hasDragged.current = false;
+      }}
+      onPointerMove={(event) => {
+        const start = pointerStart.current;
+        if (!start || hasDragged.current) return;
+        const moved =
+          Math.abs(event.clientX - start.x) > 8 || Math.abs(event.clientY - start.y) > 8;
+        if (moved) hasDragged.current = true;
       }}
       onClick={(event) => {
-        const start = pointerStart.current;
-        if (!start) return;
-        const moved =
-          Math.abs(event.clientX - start.x) > 6 || Math.abs(event.clientY - start.y) > 6;
-        if (moved) event.preventDefault();
+        if (hasDragged.current) event.preventDefault();
+        pointerStart.current = null;
+        hasDragged.current = false;
       }}
       className={cn(
-        "group flex h-full w-full cursor-pointer flex-col rounded-2xl border border-white/10 bg-navy/90 p-3.5 sm:p-4",
+        "group flex h-full w-full cursor-grab flex-col rounded-2xl border border-white/10 bg-navy/90 p-3.5 select-none active:cursor-grabbing sm:p-4",
         "shadow-[0_12px_36px_-16px_rgba(11,19,48,0.35)]",
         "transition-[border-color,box-shadow] duration-200",
         "hover:border-electric/40 hover:shadow-[0_18px_40px_-14px_rgba(62,123,250,0.4)]",
@@ -292,7 +299,11 @@ function ServiceCard({
             "group-hover:shadow-[0_0_22px_-4px_rgba(62,123,250,0.45)]",
           )}
         >
-          <Icon size={18} strokeWidth={1.75} className={iconClass} aria-hidden="true" />
+          {typeof Icon === "string" ? (
+            <img src={Icon} alt="" draggable={false} className="size-6 object-contain" />
+          ) : (
+            <Icon size={18} strokeWidth={1.75} className={iconClass} aria-hidden="true" />
+          )}
         </div>
         <h3 className="font-display min-w-0 text-base font-semibold tracking-tight text-white leading-snug sm:text-lg">
           {title}
@@ -411,7 +422,7 @@ function ServicesScroller() {
     <div ref={viewportRef} className="@container relative mt-10 overflow-hidden py-8">
       <motion.div
         ref={trackRef}
-        className="flex w-max cursor-grab gap-4 active:cursor-grabbing"
+        className="flex w-max cursor-grab gap-4 select-none active:cursor-grabbing"
         initial={{ x: 0 }}
         animate={controls}
         drag="x"

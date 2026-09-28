@@ -4,6 +4,7 @@ export const SERVICE_OPTIONS = [
   "WhatsApp / IRM",
   "Bulk SMS",
   "Voice / IVR",
+  "Custom Solutions",
   "Websites & Apps",
   "Automation & Analytics",
   "Campaign Command Centers",
