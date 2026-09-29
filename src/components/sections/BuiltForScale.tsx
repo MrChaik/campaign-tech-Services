@@ -4,30 +4,12 @@ import scaleInfrastructure from "../../assets/scale-infrastructure.webp";
 import Reveal from "../ui/Reveal";
 import SectionHeader from "../ui/SectionHeader";
 
-const METRICS = [
-  { value: "1.2M+", label: "Daily Interactions" },
-  { value: "8.4M+", label: "Total Reach" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "< 200ms", label: "Avg. Response Time" },
-] as const;
-
 const FEATURES: { title: string; icon: LucideIcon }[] = [
   { title: "Scalable Infrastructure", icon: Cloud },
   { title: "High Availability", icon: ShieldCheck },
   { title: "Reliable Performance", icon: Gauge },
   { title: "High-Volume Processing", icon: Layers },
 ];
-
-function MetricCard({ value, label }: (typeof METRICS)[number]) {
-  return (
-    <article className="rounded-2xl border border-navy/8 bg-deep px-4 py-5 shadow-[0_10px_28px_-16px_rgba(62,123,250,0.38)] sm:px-5">
-      <p className="font-display text-2xl font-semibold tabular-nums tracking-tight text-electric sm:text-[1.75rem] lg:text-3xl">
-        {value}
-      </p>
-      <p className="font-body mt-1.5 text-[13px] leading-snug text-navy/50 sm:text-sm">{label}</p>
-    </article>
-  );
-}
 
 function FeatureCard({ title, icon: Icon }: (typeof FEATURES)[number]) {
   return (
@@ -74,8 +56,8 @@ export default function BuiltForScale() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-24 lg:py-28">
-        <div className="flex flex-col gap-10 md:gap-12 lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-6 lg:gap-y-14 xl:gap-x-8">
-          <div className="relative z-20 lg:col-span-4 lg:row-start-2 lg:self-center">
+        <div className="flex flex-col gap-10 md:gap-12 lg:grid lg:grid-cols-12 lg:items-center lg:gap-x-6 xl:gap-x-8">
+          <div className="relative z-20 lg:col-span-4 lg:self-center">
             <Reveal>
               <SectionHeader
                 eyebrow="Built for Scale"
@@ -89,23 +71,13 @@ export default function BuiltForScale() {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-12 lg:row-start-1">
-            <Reveal>
-              <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-                {METRICS.map((metric) => (
-                  <MetricCard key={metric.label} {...metric} />
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="lg:col-span-5 lg:row-start-2 lg:z-10 lg:-mx-8 xl:-mx-12">
+          <div className="lg:col-span-5 lg:z-10 lg:-mx-8 xl:-mx-12">
             <Reveal delay={0.12}>
               <ScaleVisual />
             </Reveal>
           </div>
 
-          <div className="relative z-20 lg:col-span-3 lg:row-start-2 lg:self-center">
+          <div className="relative z-20 lg:col-span-3 lg:self-center">
             <Reveal delay={0.18}>
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
                 {FEATURES.map((feature) => (

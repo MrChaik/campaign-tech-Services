@@ -34,129 +34,6 @@ const SERVICES: {
   iconClass: string;
 }[] = [
   {
-    title: "WhatsApp/IRM",
-    description: "Secure messaging, rich media and intelligent response management.",
-    features: [
-      "Campaign messaging",
-      "Interactive messages",
-      "Automated responses",
-      "Audience segmentation",
-    ],
-    icon: whatsappIcon,
-    wrap: "bg-cyan/15",
-    iconClass: "text-cyan",
-  },
-  
-  {
-    title: "Bulk SMS",
-    description: "Reach thousands instantly with reliable, high-delivery messaging.",
-    features: [
-      "High-volume delivery",
-      "Personalized messages",
-      "Scheduled campaigns",
-      "Delivery tracking",
-    ],
-    icon: MessageSquare,
-    wrap: "bg-violet/12",
-    iconClass: "text-violet",
-  },
-  
-  {
-    title: "Voice / IVR",
-    description: "Interactive voice systems for surveys, updates and support.",
-    features: [
-      "IVR campaigns",
-      "Missed call service",
-      "Call routing",
-      "Response capture",
-    ],
-    icon: PhoneCall,
-    wrap: "bg-electric/12",
-    iconClass: "text-electric",
-  },
-  {
-    title: "Custom Solutions",
-    description: "Technology solutions built around your campaign's unique requirements.",
-    features: [
-      "Custom platforms",
-      "System integrations",
-      "Specialized workflows",
-      "Tailored technology",
-    ],
-    icon: Lightbulb,
-    wrap: "bg-cyan/15",
-    iconClass: "text-cyan",
-  },
-  
-  {
-    title: "Websites & Apps",
-    description: "Campaign websites, landing pages and mobile apps for better engagement.",
-    features: [
-      "Campaign websites",
-      "Mobile apps",
-      "Landing pages",
-      "Digital forms",
-    ],
-    icon: Monitor,
-    wrap: "bg-cyan/15",
-    iconClass: "text-cyan",
-  },
-  
-  {
-    title: "Automation & Analytics",
-    description: "Workflows, automation and real-time insights to drive better decisions.",
-    features: [
-      "Automated workflows",
-      "Audience insights",
-      "Real-time reporting",
-      "Custom dashboards",
-    ],
-    icon: BarChart3,
-    wrap: "bg-violet/12",
-    iconClass: "text-violet",
-  },
-  {
-    title: "Campaign Command Centers",
-    description: "Centralized dashboards for monitoring communication and campaign operations.",
-    features: [
-      "Live dashboards",
-      "Activity monitoring",
-      "Team management",
-      "Real-time reporting",
-    ],
-    icon: LayoutDashboard,
-    wrap: "bg-electric/12",
-    iconClass: "text-electric",
-  },
-  
-  {
-    title: "Digital Forms & Surveys",
-    description: "Digital tools for collecting structured feedback and field-level information.",
-    features: [
-      "Online surveys",
-      "Custom forms",
-      "Response collection",
-      "Real-time submissions",
-    ],
-    icon: ClipboardList,
-    wrap: "bg-cyan/15",
-    iconClass: "text-cyan",
-  },
-  
-  {
-    title: "Campaign Data Platforms",
-    description: "Centralized technology for organizing campaign data and operational information.",
-    features: [
-      "Data management",
-      "User access controls",
-      "Data dashboards",
-      "System integrations",
-    ],
-    icon: Database,
-    wrap: "bg-violet/12",
-    iconClass: "text-violet",
-  },
-  {
     title: "AI Calling",
     description: "Automated voice conversations for high-volume outreach.",
     features: [
@@ -169,7 +46,7 @@ const SERVICES: {
     wrap: "bg-electric/12",
     iconClass: "text-electric",
   },
-  
+
   {
     title: "AI Chat & Assistants",
     description: "AI-powered assistants for answering questions and handling conversations.",
@@ -185,6 +62,132 @@ const SERVICES: {
   },
   
   {
+    title: "WhatsApp/IRM",
+    description: "Secure messaging, rich media and intelligent response management.",
+    features: [
+      "Campaign messaging",
+      "Interactive messages",
+      "Automated responses",
+      "Audience segmentation",
+    ],
+    icon: whatsappIcon,
+    wrap: "bg-cyan/15",
+    iconClass: "text-cyan",
+  },
+
+  {
+    title: "Custom Solutions",
+    description: "Technology solutions built around your campaign's unique requirements.",
+    features: [
+      "Custom platforms",
+      "System integrations",
+      "Specialized workflows",
+      "Tailored technology",
+    ],
+    icon: Lightbulb,
+    wrap: "bg-cyan/15",
+    iconClass: "text-cyan",
+  },
+
+  {
+    title: "Campaign Data Platforms",
+    description: "Centralized technology for organizing campaign data and operational information.",
+    features: [
+      "Data management",
+      "User access controls",
+      "Data dashboards",
+      "System integrations",
+    ],
+    icon: Database,
+    wrap: "bg-violet/12",
+    iconClass: "text-violet",
+  },
+
+  {
+    title: "Bulk SMS",
+    description: "Reach thousands instantly with reliable, high-delivery messaging.",
+    features: [
+      "High-volume delivery",
+      "Personalized messages",
+      "Scheduled campaigns",
+      "Delivery tracking",
+    ],
+    icon: MessageSquare,
+    wrap: "bg-violet/12",
+    iconClass: "text-violet",
+  },
+
+  {
+    title: "Voice / IVR",
+    description: "Interactive voice systems for surveys, updates and support.",
+    features: [
+      "IVR campaigns",
+      "Missed call service",
+      "Call routing",
+      "Response capture",
+    ],
+    icon: PhoneCall,
+    wrap: "bg-electric/12",
+    iconClass: "text-electric",
+  },
+
+  {
+    title: "Websites & Apps",
+    description: "Campaign websites, landing pages and mobile apps for better engagement.",
+    features: [
+      "Campaign websites",
+      "Mobile apps",
+      "Landing pages",
+      "Digital forms",
+    ],
+    icon: Monitor,
+    wrap: "bg-cyan/15",
+    iconClass: "text-cyan",
+  },
+
+  {
+    title: "Automation & Analytics",
+    description: "Workflows, automation and real-time insights to drive better decisions.",
+    features: [
+      "Automated workflows",
+      "Audience insights",
+      "Real-time reporting",
+      "Custom dashboards",
+    ],
+    icon: BarChart3,
+    wrap: "bg-violet/12",
+    iconClass: "text-violet",
+  },
+
+  {
+    title: "Campaign Command Centers",
+    description: "Centralized dashboards for monitoring communication and campaign operations.",
+    features: [
+      "Live dashboards",
+      "Activity monitoring",
+      "Team management",
+      "Real-time reporting",
+    ],
+    icon: LayoutDashboard,
+    wrap: "bg-electric/12",
+    iconClass: "text-electric",
+  },
+
+  {
+    title: "Digital Forms & Surveys",
+    description: "Digital tools for collecting structured feedback and field-level information.",
+    features: [
+      "Online surveys",
+      "Custom forms",
+      "Response collection",
+      "Real-time submissions",
+    ],
+    icon: ClipboardList,
+    wrap: "bg-cyan/15",
+    iconClass: "text-cyan",
+  },
+
+  {
     title: "AI Content & Communication",
     description: "AI-assisted content workflows for high-volume campaign communication.",
     features: [
@@ -197,7 +200,7 @@ const SERVICES: {
     wrap: "bg-violet/12",
     iconClass: "text-violet",
   },
-  
+
   {
     title: "AI Sentiment & Feedback",
     description: "Turn large volumes of public feedback and responses into structured insights.",
@@ -211,7 +214,7 @@ const SERVICES: {
     wrap: "bg-electric/12",
     iconClass: "text-electric",
   },
-  
+
   {
     title: "AI Data Intelligence",
     description: "AI-powered analysis of campaign data to surface patterns and actionable insights.",
@@ -225,7 +228,7 @@ const SERVICES: {
     wrap: "bg-cyan/15",
     iconClass: "text-cyan",
   },
-  
+
   {
     title: "AI Workflow Automation",
     description: "Automate repetitive campaign operations with intelligent workflows.",
@@ -340,7 +343,10 @@ function ServicesScroller() {
   const trackRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const controls = useAnimationControls();
-  const inView = useInView(viewportRef, { once: true });
+  
+  // Triggers when 40% of the scroller enters the viewport
+  const inView = useInView(viewportRef, { once: true, amount: 1 });
+  
   const interrupted = useRef(false);
   const started = useRef(false);
   const [constraints, setConstraints] = useState({ left: 0, right: 0 });
@@ -381,7 +387,7 @@ function ServicesScroller() {
   useEffect(() => {
     if (!inView || reduce || interrupted.current || started.current) return;
 
-    const frame = requestAnimationFrame(() => {
+    const frameId = requestAnimationFrame(() => {
       if (interrupted.current || started.current) return;
       const viewport = viewportRef.current;
       const track = trackRef.current;
@@ -410,7 +416,7 @@ function ServicesScroller() {
       }
     });
 
-    return () => cancelAnimationFrame(frame);
+    return () => cancelAnimationFrame(frameId);
   }, [inView, reduce, controls]);
 
   const stopAutoScroll = () => {

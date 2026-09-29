@@ -10,23 +10,7 @@ export interface Service {
 }
 
 export const services: Service[] = [
-  {
-    slug: "whatsapp-irm",
-    title: "WhatsApp / IRM",
-    tagline: "Secure messaging and intelligent response management for campaigns.",
-    overviewHeading: "What is WhatsApp / IRM?",
-    overview: [
-      "WhatsApp and Intelligent Response Management (IRM) provide a direct communication channel for reaching audiences through personalized and interactive conversations. It allows campaigns to move beyond one-way messaging and create structured communication experiences.",
-      "Campaign teams can send targeted messages, manage responses, automate common conversations, and organize audiences into meaningful segments. This creates a more efficient way to manage communication at scale while keeping interactions relevant.",
-    ],
-    benefits: [
-      "WhatsApp provides a familiar channel for reaching audiences directly and keeping them informed throughout different stages of a campaign.",
-      "Audience segmentation allows different groups to receive communication that is relevant to them, while personalized messaging can make each interaction more meaningful.",
-      "Automated responses and structured workflows reduce repetitive manual work and help campaign teams manage a growing volume of conversations efficiently.",
-    ],
-    seoTitle: "WhatsApp / IRM | CampaignTech",
-    seoDescription: "Secure messaging and intelligent response management for campaigns.",
-  },
+  
   {
     slug: "bulk-sms",
     title: "Bulk SMS",
@@ -77,7 +61,24 @@ export const services: Service[] = [
     ],
     seoTitle: "Custom Solutions | CampaignTech",
     seoDescription: "Technology solutions built around your campaign's unique requirements."
-    },    
+    },   
+    {
+      slug: "whatsapp-irm",
+      title: "WhatsApp/IRM",
+      tagline: "Secure messaging and intelligent response management for campaigns.",
+      overviewHeading: "What is WhatsApp / IRM?",
+      overview: [
+        "WhatsApp and Intelligent Response Management (IRM) provide a direct communication channel for reaching audiences through personalized and interactive conversations. It allows campaigns to move beyond one-way messaging and create structured communication experiences.",
+        "Campaign teams can send targeted messages, manage responses, automate common conversations, and organize audiences into meaningful segments. This creates a more efficient way to manage communication at scale while keeping interactions relevant.",
+      ],
+      benefits: [
+        "WhatsApp provides a familiar channel for reaching audiences directly and keeping them informed throughout different stages of a campaign.",
+        "Audience segmentation allows different groups to receive communication that is relevant to them, while personalized messaging can make each interaction more meaningful.",
+        "Automated responses and structured workflows reduce repetitive manual work and help campaign teams manage a growing volume of conversations efficiently.",
+      ],
+      seoTitle: "WhatsApp / IRM | CampaignTech",
+      seoDescription: "Secure messaging and intelligent response management for campaigns.",
+    }, 
   {
     slug: "websites-apps",
     title: "Websites & Apps",
