@@ -31,5 +31,3 @@ export const politicalContactSchema = z.object({
 });
 
 export type PoliticalContactFormData = z.infer<typeof politicalContactSchema>;
-
-export const CONTACT_EMAIL = "chaitanyakumar4349@gmail.com";
