@@ -1,4 +1,5 @@
 import whatsappIcon from "../../assets/whatsapp.svg";
+import { CONTACT_MOBILE, whatsAppUrl } from "../../lib/siteContact";
 import { cn } from "../../lib/utils";
 
 interface WhatsAppButtonProps {
@@ -10,13 +11,13 @@ interface WhatsAppButtonProps {
 }
 
 const WhatsAppButton = ({
-  phoneNumber = "7842754768",
+  phoneNumber = CONTACT_MOBILE,
   message = "Hi, I would like to know more about CampaignTech.",
   className,
   imgClassName,
   ping = true,
 }: WhatsAppButtonProps) => {
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = whatsAppUrl(message, phoneNumber);
 
   return (
     <a
