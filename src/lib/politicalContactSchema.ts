@@ -32,4 +32,17 @@ export const politicalContactSchema = z.object({
 
 export type PoliticalContactFormData = z.infer<typeof politicalContactSchema>;
 
-export const CONTACT_EMAIL = "chaitanyakumar4349@gmail.com";
+function readContactEnv(value: string | undefined, fallback: string) {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : fallback;
+}
+
+export const CONTACT_EMAIL = readContactEnv(
+  import.meta.env.VITE_CONTACT_EMAIL,
+  "abhijit@my-leader.in",
+);
+
+export const CONTACT_MOBILE = readContactEnv(
+  import.meta.env.VITE_CONTACT_MOBILE,
+  "8977238573",
+);

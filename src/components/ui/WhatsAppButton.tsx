@@ -1,4 +1,5 @@
 import whatsappIcon from "../../assets/whatsapp.svg";
+import { CONTACT_MOBILE } from "../../lib/politicalContactSchema";
 import { cn } from "../../lib/utils";
 
 interface WhatsAppButtonProps {
@@ -10,7 +11,7 @@ interface WhatsAppButtonProps {
 }
 
 const WhatsAppButton = ({
-  phoneNumber = "7842754768",
+  phoneNumber = CONTACT_MOBILE,
   message = "Hi, I would like to know more about CampaignTech.",
   className,
   imgClassName,
