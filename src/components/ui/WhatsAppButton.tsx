@@ -1,5 +1,5 @@
 import whatsappIcon from "../../assets/whatsapp.svg";
-import { CONTACT_MOBILE } from "../../lib/politicalContactSchema";
+import { CONTACT_MOBILE, whatsAppUrl } from "../../lib/siteContact";
 import { cn } from "../../lib/utils";
 
 interface WhatsAppButtonProps {
@@ -17,7 +17,7 @@ const WhatsAppButton = ({
   imgClassName,
   ping = true,
 }: WhatsAppButtonProps) => {
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = whatsAppUrl(message, phoneNumber);
 
   return (
     <a

@@ -4,11 +4,11 @@ import { useState, type ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { cn } from "../../lib/utils";
 import {
-  CONTACT_EMAIL,
   politicalContactSchema,
   SERVICE_OPTIONS,
   type PoliticalContactFormData,
 } from "../../lib/politicalContactSchema";
+import { CONTACT_EMAIL } from "../../lib/siteContact";
 import CTAButton from "../ui/CTAButton";
 import WhatsAppButton from "../ui/WhatsAppButton";
 

@@ -1,31 +1,31 @@
 import { ArrowRight } from "lucide-react";
-import aiCalling from "../../assets/AI calling.png";
-import bulkSms from "../../assets/Bulk SMS.png";
-import campaignData from "../../assets/campaign data & analytics.png";
-import customSolutions from "../../assets/Custom Innovative solutions.png";
-import heroBackground from "../../assets/Hero.webp";
-import heroBackgroundMobile from "../../assets/Hero-mobile.jpg";
-import websitesApps from "../../assets/Websites & Apps.png";
-import whatsappIrm from "../../assets/Whatsapp_IRM.png";
 import AnimatedCounter from "../ui/AnimatedCounter";
 import CTAButton from "../ui/CTAButton";
-import HeroCarousel, { type HeroCarouselImage } from "../ui/HeroCarousel";
 import Reveal from "../ui/Reveal";
 import { TitleWithAccent } from "../ui/SectionHeader";
+import heroBackground from "../../assets/Hero.webp";
+import heroBackgroundMobile from "../../assets/Hero-mobile.jpg";
+// import aiCalling from "../../assets/AI calling.png";
+// import bulkSms from "../../assets/Bulk SMS.png";
+// import campaignData from "../../assets/campaign data & analytics.png";
+// import customSolutions from "../../assets/Custom Innovative solutions.png";
+// import websitesApps from "../../assets/Websites & Apps.png";
+// import whatsappIrm from "../../assets/Whatsapp_IRM.png";
+// import HeroCarousel, { type HeroCarouselImage } from "../ui/HeroCarousel";
 
 // Current service illustrations. Replace entries here when final hero photography is ready.
-const HERO_SLIDES: readonly HeroCarouselImage[] = [
-  { src: whatsappIrm, alt: "WhatsApp and IRM messaging", href: "/services/whatsapp-irm" },
-  { src: bulkSms, alt: "Bulk SMS campaigns", href: "/services/bulk-sms" },
-  { src: aiCalling, alt: "AI calling", href: "/services/ai-calling" },
-  { src: websitesApps, alt: "Websites and apps", href: "/services/websites-apps" },
-  { src: campaignData, alt: "Campaign data and analytics", href: "/services/campaign-data-platforms" },
-  { src: customSolutions, alt: "Custom innovative solutions", href: "/services/custom-solutions" },
-];
+// const HERO_SLIDES: readonly HeroCarouselImage[] = [
+//   { src: whatsappIrm, alt: "WhatsApp and IRM messaging", href: "/services/whatsapp-irm" },
+//   { src: bulkSms, alt: "Bulk SMS campaigns", href: "/services/bulk-sms" },
+//   { src: aiCalling, alt: "AI calling", href: "/services/ai-calling" },
+//   { src: websitesApps, alt: "Websites and apps", href: "/services/websites-apps" },
+//   { src: campaignData, alt: "Campaign data and analytics", href: "/services/campaign-data-platforms" },
+//   { src: customSolutions, alt: "Custom innovative solutions", href: "/services/custom-solutions" },
+// ];
 
 export default function Hero() {
   return (
-    <section className="relative isolate overflow-hidden pt-[5.2rem]">
+    <section className="relative isolate overflow-hidden pt-[0.5rem]">
       <img
         src={heroBackgroundMobile}
         alt=""
@@ -43,8 +43,8 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-14 md:px-10 md:py-16 lg:min-h-[calc(100vh-5.2rem)] lg:grid-cols-2 lg:gap-16 lg:py-12">
-        <div className="max-w-2xl">
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-10 md:px-10 md:py-16 lg:py-[13%] lg:gap-16">
+        <div>
           <Reveal>
             <p className="font-body inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium tracking-wide text-cyan">
               Campaign Technology Infrastructure
@@ -52,7 +52,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <h1 className="font-display mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-[1.1] text-balance">
+            <h1 className="font-display mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-[1.1] ">
               <TitleWithAccent
                 text="Technology that powers modern political campaigns"
                 accentWords={3}
@@ -61,7 +61,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.24}>
-            <p className="font-body mt-6 text-lg text-white/75 max-w-lg leading-relaxed">
+            <p className="font-body mt-6 text-lg text-white/75  leading-relaxed">
               We build the communication infrastructure, AI systems and automation
               platforms that let organizations run large-scale campaigns with precision.
             </p>
@@ -87,7 +87,7 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.48}>
-            <div className="mt-8 ml-8 flex flex-wrap gap-6 md:gap-8">
+            <div className="mt-8 ml-8 flex flex-wrap justify-evenly">
             <div className="text-center">
               <AnimatedCounter value={1.8} suffix="M+" />
               <p className="font-body text-base text-white/70">Total Reach</p>
@@ -105,9 +105,9 @@ export default function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.6} className="mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
+        {/* <Reveal delay={0.6} className="mx-auto w-full max-w-lg lg:mx-0 lg:max-w-none">
           <HeroCarousel images={HERO_SLIDES} />
-        </Reveal>
+        </Reveal> */}
       </div>
     </section>
   );
