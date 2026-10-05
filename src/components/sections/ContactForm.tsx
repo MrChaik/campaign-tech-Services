@@ -8,7 +8,7 @@ import {
   SERVICE_OPTIONS,
   type PoliticalContactFormData,
 } from "../../lib/politicalContactSchema";
-import { CONTACT_EMAIL, whatsAppUrl } from "../../lib/siteContact";
+import { CONTACT_EMAIL } from "../../lib/siteContact";
 import CTAButton from "../ui/CTAButton";
 import WhatsAppButton from "../ui/WhatsAppButton";
 
