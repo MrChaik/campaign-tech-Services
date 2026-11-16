@@ -39,6 +39,67 @@
   --animate-marquee-reverse: marquee-reverse 42s linear infinite;
 }
 
+.legal-prose p + p {
+  margin-top: 1rem;
+}
+
+.legal-prose ul,
+.legal-prose ol {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.legal-prose ul {
+  list-style-type: disc;
+}
+
+.legal-prose ul.legal-contact-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.legal-prose ul.legal-contact-list li + li {
+  margin-top: 0.5rem;
+}
+
+.legal-prose ol {
+  list-style-type: decimal;
+}
+
+.legal-prose li + li {
+  margin-top: 0.35rem;
+}
+
+.legal-prose a {
+  color: var(--color-cyan);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-prose a:hover {
+  color: var(--color-electric);
+}
+
+.legal-prose strong {
+  color: color-mix(in srgb, white 92%, transparent);
+  font-weight: 600;
+}
+
+.legal-prose h3 {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: color-mix(in srgb, white 90%, transparent);
+}
+
+@media (min-width: 640px) {
+  .legal-prose h3 {
+    font-size: 1.125rem;
+  }
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

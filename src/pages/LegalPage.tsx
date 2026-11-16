@@ -1,16 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
+import LegalDocument, { type LegalSection } from "../components/legal/LegalDocument";
 
-export default function LegalPage({ title }: { title: string }) {
+type LegalPageProps = {
+  title: string;
+  lastUpdated?: string;
+  intro?: ReactNode;
+  sections?: LegalSection[];
+};
+
+export default function LegalPage({
+  title,
+  lastUpdated,
+  intro,
+  sections = [],
+}: LegalPageProps) {
   useEffect(() => {
     document.title = `${title} | CampaignTech`;
     window.scrollTo(0, 0);
   }, [title]);
 
   return (
-    <main className="bg-navy px-6 pt-40 pb-24">
-      <h1 className="font-display mx-auto max-w-7xl text-4xl font-semibold tracking-tight text-white md:text-5xl">
-        {title}
-      </h1>
+    <main className="bg-navy pt-40 pb-20 md:pb-24">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <LegalDocument
+          title={title}
+          lastUpdated={lastUpdated}
+          intro={intro}
+          sections={sections}
+        />
+      </div>
     </main>
   );
 }
