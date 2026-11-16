@@ -12,7 +12,8 @@ import InnovationSolutions from "./components/sections/InnovationSolutions";
 import BuiltForScale from "./components/sections/BuiltForScale";
 import ClosingSection from "./components/sections/ClosingSection";
 import WhatsAppButton from "./components/ui/WhatsAppButton";
-import LegalPage from "./pages/LegalPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import ServicePage from "./pages/services/ServicePage";
 
 function HomePage() {
@@ -46,8 +47,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services/:slug" element={<ServicePage />} />
-        <Route path="/privacy-policy" element={<LegalPage title="Privacy Policy" />} />
-        <Route path="/terms-and-conditions" element={<LegalPage title="Terms and Conditions" />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
       </Routes>
       <Footer />
       <WhatsAppButton />
